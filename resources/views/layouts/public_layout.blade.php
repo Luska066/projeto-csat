@@ -7,14 +7,17 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+   
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/70cc1b4b0d.js" crossorigin="anonymous"></script>
 </head>
-<body class="" style="box-sizing: border-box">
-<div class="flex justify-between items-center bg-gray-50 ps-8  text-dark">
-    <img width="90px" class="ms-20" src="https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png"/>
+<body  class="" style="box-sizing: border-box">
+<div  class="flex justify-between items-center bg-gray-50 ps-8  text-dark">
+    <img width="90px"  src="https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png"/>
     @if (Route::has('login'))
         <div class="w-96 flex  justify-center  gap-5">
             @auth
@@ -57,48 +60,37 @@
         </div>
     @endif
 </div>
-<div class="flex ">
+<div   class="flex ">
     @yield('content')
 </div>
 <script>
     let a = document.querySelector('#option-container')
     let b = document.getElementById('options-dropdown')
     let c = document.getElementById('img-container')
-    c.style.backgroundImage = "url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg')"
+
+    c.style.backgroundImage = "url('{{Illuminate\Support\Facades\Storage::url('57a378c88099a6366e5bff1b9d5f125d.jpg')}}')"
     //c.('href','https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png')
     let  count = 0
     setInterval(() => {
         count++
         if(count == 1){
-            c.style.backgroundImage = "url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('fullhd.jpg')}}')"
         }else if(count == 2){
-            c.style.backgroundImage = "url('https://www.kabum.com.br/conteudo/descricao/115085/img/fullhd.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('12.jpg')}}')"
         }else if(count == 3){
-            c.style.backgroundImage = "url('https://4.bp.blogspot.com/-uM8yY4lTbDQ/US4I4eTNE-I/AAAAAAAAAaQ/tpzr3oK6L-s/s1600/12.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('e6dd7dcb605aa52e65754c899ffbb1a4.jpg')}}')"
         }else if(count == 4){
-            c.style.backgroundImage = "url('https://i.pinimg.com/originals/e6/dd/7d/e6dd7dcb605aa52e65754c899ffbb1a4.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('f5a43097018f03a7ea910a28afd641c6.jpg')}}')"
         }else if(count == 5){
-            c.style.backgroundImage = "url('https://www.10wallpaper.com/wallpaper/1366x768/1302/oxtongue_rapids-Natural_scenery_HD_Wallpaper_1366x768.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('colchester-zoo-photo.jpg')}}')"
         }else if(count == 6){
-            c.style.backgroundImage = "url('https://i.pinimg.com/originals/f5/a4/30/f5a43097018f03a7ea910a28afd641c6.jpg')"
+            c.style.backgroundImage = "url('{{\Illuminate\Support\Facades\Storage::url('fullhd.jpg')}}')"
         }else{
-            c.style.backgroundImage = "url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg')"
+            c.style.backgroundImage = "url('{{Illuminate\Support\Facades\Storage::url('57a378c88099a6366e5bff1b9d5f125d.jpg')}}')"
             count = 0
         }
         console.log(count)
     },10000)
-    // setInterval(() => {
-    //     console.log('teste2')
-    //     c.style.backgroundImage = "url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg')"
-    // },20000)
-    // setInterval(() => {
-    //     console.log('teste3')
-    //     c.style.backgroundImage = "url('https://www.kabum.com.br/conteudo/descricao/115085/img/fullhd.jpg')"
-    // },30000)
-    // setInterval(() => {
-    //     console.log('teste4')
-    //     c.style.backgroundImage = "url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg')"
-    // },40000)
     a.addEventListener('click',function(e){
         b.classList.toggle('close')
     })

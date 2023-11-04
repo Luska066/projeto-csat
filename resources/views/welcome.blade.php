@@ -26,7 +26,16 @@
                         </div>
                         <i class="fa-solid fa-check border rounded-full border-green-500 rounded-8 p-4 px-6" style="color: #2fd05f;font-size: 100px"></i>
                         <span class="mt-4 mb-8 mt-8 font-semibold" style="font-size: 20px">Login Realizado Com Sucesso !!!</span>
+                        <span id="count-regressive" class="mt-4 mb-8 mt-8 font-semibold" style="font-size: 20px"></span>
+                        <script>
+                            const a  = document.getElementById('count-regressive');
+                            let count = 0;
+                            setInterval(() => {
+                                console.log(count+1)
+                            },1000)
+                        </script>
                     </div>
+
                 @else
                     <form  method="POST" action="{{ route('login') }}" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-[80%] flex  flex-col justify-center">
                         @csrf
