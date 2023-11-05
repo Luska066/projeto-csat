@@ -169,6 +169,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+//        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class
     ])->toArray(),
 
     /*
@@ -186,6 +187,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        "Breadcrumbs" => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class
     ])->toArray(),
 
 ];

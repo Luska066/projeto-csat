@@ -12,12 +12,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CsatController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home-login');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/posts', [App\Http\Controllers\HomeController::class, 'index'])->name('post');
+Route::resource('/csat',CsatController::class);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/posts', [HomeController::class, 'index'])->name('post');

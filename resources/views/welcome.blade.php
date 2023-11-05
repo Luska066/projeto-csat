@@ -11,9 +11,6 @@
 </style>
 <div class="flex w-screen h-screen justify-between items-center">
     <div class=" w-full lg:max-w-full lg:flex" style="width: 100%;height: 100%">
-{{--        <div id="img-container" class=" h-48 lg:h-auto  flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://i.pinimg.com/originals/57/a3/78/57a378c88099a6366e5bff1b9d5f125d.jpg');width: 50%" title="Woman holding a mug">--}}
-{{--        </div>--}}
-
         <div id="img-container" class=" h-48 lg:h-auto  flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="width: 50%" title="Woman holding a mug">
         </div>
 
@@ -25,14 +22,13 @@
                             <img  width="100px" src="https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png"/>
                         </div>
                         <i class="fa-solid fa-check border rounded-full border-green-500 rounded-8 p-4 px-6" style="color: #2fd05f;font-size: 100px"></i>
-                        <span class="mt-4 mb-8 mt-8 font-semibold" style="font-size: 20px">Login Realizado Com Sucesso !!!</span>
-                        <span id="count-regressive" class="mt-4 mb-8 mt-8 font-semibold" style="font-size: 20px"></span>
+                        <span class="mt-4 mt-8 font-semibold" style="font-size: 20px">Login Realizado Com Sucesso !!!</span>
+                        <span class=" mb-8 font-semibold" style="font-size: 20px">Em 5s segundos você será redirecionado</span>
                         <script>
-                            const a  = document.getElementById('count-regressive');
-                            let count = 0;
-                            setInterval(() => {
-                                console.log(count+1)
-                            },1000)
+                            setTimeout(() => {
+                                console.log('testes')
+                                window.location.href='/home';
+                            },5000)
                         </script>
                     </div>
 
