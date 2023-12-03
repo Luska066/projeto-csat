@@ -15,9 +15,12 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+import Chart from "./components/Chart.vue";
+import Toastify from "./components/Toastify.vue"
 
+
+app.component('chart-component', Chart);
+app.component('toastify-component', Toastify);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

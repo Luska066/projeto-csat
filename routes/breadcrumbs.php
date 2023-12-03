@@ -8,10 +8,23 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
-    $trail->push('Home', route('home'));
+    $trail->push('HOME', route('home'));
 });
 
-Breadcrumbs::for('csat.index', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('csat', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('CSAT', route('csat.index'));
 });
+
+Breadcrumbs::for('csat.index', function (BreadcrumbTrail $trail) {
+    $trail->parent('csat');
+    $trail->push('GERAL', route('csat.index'));
+});
+
+Breadcrumbs::for('csat.statistics', function (BreadcrumbTrail $trail) {
+    $trail->parent('csat');
+    $trail->push('STATISTICS', route('csat.statistics'));
+});
+
+
+

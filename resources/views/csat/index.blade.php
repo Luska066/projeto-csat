@@ -5,8 +5,7 @@
     <div class="flex flex-1 w-screen h-screen justify-between items-center ">
 
         <div class="m-5 mt-0 p-5 p-0">
-
-            <div class="mb-lg-2" >
+            <div class="mb-lg-2 brad" >
                 {{Breadcrumbs::render('csat.index')}}
             </div>
             <table class="table ">

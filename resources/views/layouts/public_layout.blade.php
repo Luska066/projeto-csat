@@ -9,9 +9,11 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/70cc1b4b0d.js" crossorigin="anonymous"></script>
+
+
 </head>
-<body  class="" style="box-sizing: border-box">
-<div  class="flex justify-between items-center bg-gray-50 ps-8  text-dark">
+<body class="" style="box-sizing: border-box">
+<div    class="flex justify-between items-center bg-gray-50 ps-8  text-dark">
     <img width="90px"  src="https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png"/>
     @if (Route::has('login'))
         <div class="w-96 flex  justify-center  gap-5">
@@ -46,18 +48,38 @@
 
 
             @else
+            @if(Route::current()->getName() != "pesquisa.satisfacao.index" )
                 <a href="{{ route('home-login') }}" class="font-semibold text-xl hover:text-cyan-500	">Login</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="ml-4 font-semibold text-xl hover:text-cyan-500">Register</a>
-                @endif
+
+            @else
+                <a href="" class=" text-xl hover:text-cyan-500	">Pesquisa Satisfação</a>
+            @endif
+
             @endauth
 
         </div>
     @endif
 </div>
-<div   class="flex ">
+<div class="flex ">
+
     @yield('content')
 </div>
+
+<script>
+    var stars = document.querySelectorAll('.star-icon');
+
+      document.addEventListener('click', function(e){
+        var classStar = e.target.classList;
+
+        if(!classStar.contains('ativo')){
+          stars.forEach(function(star){
+            star.classList.remove('ativo');
+          });
+          classStar.add('ativo');
+          console.log(e.target.getAttribute('data-avaliacao'));
+        }
+      });
+</script>
 <script>
     let a = document.querySelector('#option-container')
     let b = document.getElementById('options-dropdown')

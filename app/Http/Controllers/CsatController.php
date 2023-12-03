@@ -21,9 +21,12 @@ class CsatController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    public function statistics(){
+        return view('csat.statistics.index');
+    }
     public function create()
     {
-        //
+
     }
 
     /**

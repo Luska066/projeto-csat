@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PesquisaSatisfacaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('/csat',CsatController::class);
+Route::get('/csat-statistics',[CsatController::class,'statistics'])->name('csat.statistics');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/posts', [HomeController::class, 'index'])->name('post');
+Route::get('/pesquisa-satisfacao',[PesquisaSatisfacaoController::class,'index'])->name('pesquisa.satisfacao.index');
+
+Route::post('/pesquisa-satisfacao',[PesquisaSatisfacaoController::class,'store'])->name('pesquisa.satisfacao.store');
