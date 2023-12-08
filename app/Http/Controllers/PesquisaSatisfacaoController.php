@@ -31,7 +31,7 @@ class PesquisaSatisfacaoController extends Controller
             if($object["note"] == "" || $object["note"] == null){
                 $object["note"] = 1;
             }
-            if($object["note"] == "" || $object["note"] == null){
+            if($object["name"] == "" || $object["name"] == null){
                 $dd = Search::create([
                     "description" => $object["description"],
                     "note" =>$object["note"]

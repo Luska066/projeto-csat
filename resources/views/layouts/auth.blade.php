@@ -27,6 +27,39 @@
             color: darkblue;
         }
     </style>
+     <style>
+        #table-contents{
+            width: 50%;
+        }
+
+        #box-chart{
+            width: 50%;
+        }
+
+
+        @media (max-width:948px){
+            #box-contens{
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               justify-content: center;
+                flex-wrap: wrap;
+
+            }
+
+            #box-chart{
+                width: 100%;
+
+            }
+
+            #table-contents{
+
+                padding: 20px;
+                display: flex;
+                width: 100%;
+            }
+        }
+    </style>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/70cc1b4b0d.js" crossorigin="anonymous"></script>
@@ -64,12 +97,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            {{-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif --}}
                         @else
                             <li class="nav-item dropdown" style="font-size: 16px;margin-top: 5px;">
                                 <a id="navbarDropdownCsat" class="nav-link dropdown-toggle m-0" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -78,9 +105,6 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownCsat">
                                     <a class="dropdown-item" href="{{route('csat.index')}}">
                                         Geral
-                                    </a>
-                                    <a href="{{route('csat.statistics')}}" class="dropdown-item">
-                                        Estatística
                                     </a>
                                 </div>
                             </li>
@@ -93,7 +117,6 @@
                                         border: 1px solid black;
                                         border-radius: 100%;
                                         padding: 8px 9px;"></i>
-{{--                                    <span class="ms-1" style="16px" >{{ Auth::user()->name }}</span>--}}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

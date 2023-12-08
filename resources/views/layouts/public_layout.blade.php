@@ -17,7 +17,8 @@
     <img width="90px"  src="https://comercialportaldailha.com.br/wp-content/uploads/2018/11/Marca-Portal-da-Ilha.png"/>
     @if (Route::has('login'))
         <div class="w-96 flex  justify-center  gap-5">
-            @auth
+            @if(Route::current()->getName() != "pesquisa.satisfacao.index" )
+                @auth
                 <a href="{{ url('/home') }}" class="font-semibold text-dark-600 ">Home</a>
                 <div>
                     <a id="option-container" style="font-size: 16px" class="inline-flex w-full justify-center gap-x-1.5 rounded-md  px-3 bg-gray-50  text-sm font-semibold text-gray-900  " id="menu-button" aria-expanded="true" aria-haspopup="true">
@@ -45,17 +46,13 @@
                         </div>
                     </div>
                 </div>
-
-
             @else
-            @if(Route::current()->getName() != "pesquisa.satisfacao.index" )
+
                 <a href="{{ route('home-login') }}" class="font-semibold text-xl hover:text-cyan-500	">Login</a>
-
-            @else
-                <a href="" class=" text-xl hover:text-cyan-500	">Pesquisa Satisfação</a>
-            @endif
-
-            @endauth
+        @endauth
+        @else
+            <a href="" class=" text-xl hover:text-cyan-500	">Pesquisa Satisfação</a>
+        @endif
 
         </div>
     @endif

@@ -1,48 +1,42 @@
  <template>
-    <Line :data="data" :options="options" />
+    <Pie :data="data" :options="options" />
 </template>
 <script lang="ts">
 import {
     Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
     Tooltip,
-    Legend
+    Legend,
+    ArcElement
 } from 'chart.js'
-import { Line } from 'vue-chartjs'
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-)
+import { Pie } from 'vue-chartjs'
+
+ChartJS.register(ArcElement, Tooltip, Legend)
 export default {
 
     name: 'App',
+    props:['aprovacao','neutra','negativa'],
     components: {
-        Line
+       Pie
     },
     data() {
         return {
             data:{
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Taxa de Aprovação','Taxa Neutra' ,'Taxa de Desaprovação'],
                 datasets: [
                     {
-                        label: 'Data One',
-                        backgroundColor: '#f87979',
-                        data: [40, 39, 10, 40, 39, 80, 40]
+                        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
+                        data: [this.aprovacao, this.neutra,this.negativa]
                     }
                 ]
             },
             options:{
-
-                maintainAspectRatio: false
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                    position: 'bottom', // Posiciona a legenda na lateral
+                    },
+                },
             }
         }
     }

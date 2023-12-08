@@ -16,10 +16,12 @@ import { createApp } from 'vue';
 const app = createApp({});
 
 import Chart from "./components/Chart.vue";
+import ChartLine from "./components/ChartLine.vue";
+
 import Toastify from "./components/Toastify.vue"
 
-
 app.component('chart-component', Chart);
+app.component('chartline-component', ChartLine);
 app.component('toastify-component', Toastify);
 /**
  * The following block of code may be used to automatically register your

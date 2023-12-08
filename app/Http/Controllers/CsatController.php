@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Search;
 use Illuminate\Http\Request;
 
 class CsatController extends Controller
@@ -15,7 +16,31 @@ class CsatController extends Controller
      */
     public function index()
     {
-        return view("csat.index");
+        $search = Search::all();
+        //Valor Positivo
+        $noteFive = Search::where('note',5)->count();
+        $noteFour = Search::where('note',4)->count();
+        $totalNote = Search::all()->count();
+
+        //Valor negativo
+        $noteTwo = Search::where('note',2)->count();
+        $noteOne = Search::where('note',1)->count();
+
+        $csatValueNegativeFeedback =( ($noteTwo + $noteOne)/$totalNote)*100;
+
+
+        $noteThree = Search::where('note',3)->count();
+        $csatValueNeutralFeedback =($noteThree/$totalNote)*100;
+
+        $csatValue = (($noteFour + $noteFive)/$totalNote)*100;
+
+        $allNotes = Search::all('note')->pluck('note')->map(function ($value) {
+            return intval($value);
+        });
+
+
+
+        return view("csat.index",compact('search','csatValue','csatValueNegativeFeedback','csatValueNeutralFeedback','allNotes'));
     }
 
     /**
