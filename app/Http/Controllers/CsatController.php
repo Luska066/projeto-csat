@@ -17,13 +17,15 @@ class CsatController extends Controller
     public function index()
     {
         $search = Search::all();
+
+
         //Valor Positivo
         $noteFive = Search::where('note',5)->count();
         $noteFour = Search::where('note',4)->count();
-        $totalNote = Search::all()->count();
+        $totalNote = Search::all()->count() == 0 ? 1 : Search::all()->count() ;
 
         //Valor negativo
-        $noteTwo = Search::where('note',2)->count();
+        $noteTwo = Search::where('note',2)->count()  ;
         $noteOne = Search::where('note',1)->count();
 
         $csatValueNegativeFeedback =( ($noteTwo + $noteOne)/$totalNote)*100;

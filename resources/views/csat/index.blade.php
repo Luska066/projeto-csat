@@ -21,6 +21,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach ($search as $search_item )
                         <tr>
                             <th scope="col-2">{{$search_item->id}}</th>
